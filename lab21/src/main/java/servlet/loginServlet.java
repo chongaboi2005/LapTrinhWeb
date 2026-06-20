@@ -5,7 +5,9 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/login")
 public class loginServlet extends HttpServlet {
@@ -21,11 +23,11 @@ public class loginServlet extends HttpServlet {
 
         try
         {
+            response.setContentType("text/html;charset=UTF-8");
             PrintWriter out = response.getWriter();
 
-            if (user.equalsIgnoreCase("van") && pass.equalsIgnoreCase("123")) 
+            if (user.equalsIgnoreCase("duong") && pass.equalsIgnoreCase("333")) 
             {
-                response.setContentType("text/html;charset=UTF-8");
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
@@ -42,7 +44,7 @@ public class loginServlet extends HttpServlet {
                 String host = request.getHeader("X-Forwarded-Host");
                 String proto = request.getHeader("X-Forwarded-Proto");
                 response.sendRedirect(
-                proto + "://" + host + "/login.html"
+                proto + "://" + host + "/project2/login.html"
                 );
                 //response.sendRedirect("login.html");
             }

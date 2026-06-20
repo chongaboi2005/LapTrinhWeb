@@ -10,8 +10,7 @@ import javax.servlet.http.*;
 @WebServlet("/chuyendoi")
 public class chuyendoiServlet3 extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response)
+    protected void doPost(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException {
 
         double miles = Double.parseDouble(request.getParameter("mile"));
@@ -21,7 +20,6 @@ public class chuyendoiServlet3 extends HttpServlet {
         request.setAttribute("result", km);
         response.setContentType("text/html;charset=UTF-8");
         
-        request.getRequestDispatcher("chuyendoi.jsp")
-               .forward(request, response);
+        request.getRequestDispatcher("/project1/chuyendoi.jsp").forward(request, response);
     }
 }
